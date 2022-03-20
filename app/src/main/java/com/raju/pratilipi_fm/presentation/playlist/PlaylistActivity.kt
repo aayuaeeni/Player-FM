@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
-import com.raju.player.BaseSongPlayerActivity
+import com.raju.player.BasePlayerActivity
 import com.raju.pratilipi_fm.R
 import com.raju.pratilipi_fm.data.model.Song
 import com.raju.pratilipi_fm.databinding.ActivityPlaylistBinding
@@ -15,7 +15,7 @@ import com.raju.pratilipi_fm.presentation.record.RecordingActivity
 import com.raju.pratilipi_fm.utils.OptionSheet
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class PlaylistActivity : BaseSongPlayerActivity(), OnPlaylistAdapterListener,OptionSheet.OptionSheetListener {
+class PlaylistActivity : BasePlayerActivity(), OnPlaylistAdapterListener,OptionSheet.OptionSheetListener {
 
     lateinit var binding: ActivityPlaylistBinding
 
@@ -51,7 +51,14 @@ class PlaylistActivity : BaseSongPlayerActivity(), OnPlaylistAdapterListener,Opt
     override fun onBackPressed() {
         supportFinishAfterTransition()
     }
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == PICK_AUDIO_KEY) {
+            data?.data?.let {
+                addSong(it)
+            }
+        }
+    }
     private fun addSong(musicData: Uri) {
         /*    val cursor = activity?.contentResolver?.query(musicData, null,null, null, null)*/
         val cursor = contentResolver?.query(

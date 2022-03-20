@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <application android:label="@string/app_name">
 
-        <activity android:name=".BaseSongPlayerActivity"
+        <activity android:name=".BasePlayerActivity"
             android:exported="true"/>
 
         <service android:name=".service.SongPlayerService"

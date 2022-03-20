@@ -13,7 +13,7 @@ import android.view.View
 import android.widget.RemoteViews
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import com.raju.player.BaseSongPlayerActivity
+import com.raju.player.BasePlayerActivity
 import com.raju.player.R
 import com.raju.player.exo.PlaybackState
 import com.raju.player.model.ASong
@@ -169,7 +169,7 @@ constructor(private val mService: SongPlayerService) : BroadcastReceiver() {
                 putExtra(ASong::class.java.name, it)
             }
             mService.getCurrentSongList()?.let {
-                putExtra(BaseSongPlayerActivity.SONG_LIST_KEY, it)
+                putExtra(BasePlayerActivity.SONG_LIST_KEY, it)
             }
         }
 

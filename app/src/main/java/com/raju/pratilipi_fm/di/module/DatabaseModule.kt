@@ -3,9 +3,9 @@ package com.raju.pratilipi_fm.di.module
 import android.app.Application
 import androidx.room.Room
 import com.raju.pratilipi_fm.data.repository.PlaylistRepositoryImp
-import com.raju.pratilipi_fm.domain.repository.PlaylistRepository
 import com.raju.pratilipi_fm.data.source.local.AppDatabase
 import com.raju.pratilipi_fm.data.source.local.dao.SongDao
+import com.raju.pratilipi_fm.domain.repository.PlaylistRepository
 import org.koin.dsl.module
 
 val DatabaseModule = module {
@@ -22,7 +22,7 @@ internal fun createAppDatabase(application: Application): AppDatabase {
         AppDatabase::class.java,
         AppDatabase.DB_NAME
     )
-        // .fallbackToDestructiveMigration()//allows database to be cleared after upgrading version
+         .fallbackToDestructiveMigration()//allows database to be cleared after upgrading version
         .allowMainThreadQueries()
         .build()
 }

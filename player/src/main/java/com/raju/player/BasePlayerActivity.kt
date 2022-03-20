@@ -9,13 +9,13 @@ import android.os.IBinder
 import android.os.Looper
 import android.os.Message
 import androidx.appcompat.app.AppCompatActivity
-import com.raju.player.SongPlayerViewModel.Companion.getPlayerViewModelInstance
+import com.raju.player.BasePlayerViewModel.Companion.getPlayerViewModelInstance
 import com.raju.player.model.ASong
 import com.raju.player.service.OnPlayerServiceCallback
 import com.raju.player.service.SongPlayerService
 
 
-open class BaseSongPlayerActivity : AppCompatActivity(), OnPlayerServiceCallback {
+open class BasePlayerActivity : AppCompatActivity(), OnPlayerServiceCallback {
 
 
     private var mService: SongPlayerService? = null
@@ -23,7 +23,7 @@ open class BaseSongPlayerActivity : AppCompatActivity(), OnPlayerServiceCallback
     private var mSong: ASong? = null
     private var mSongList: MutableList<ASong>? = null
     private var msg = 0
-    val songPlayerViewModel: SongPlayerViewModel = getPlayerViewModelInstance()
+    val songPlayerViewModel: BasePlayerViewModel = getPlayerViewModelInstance()
 
 
     private val mHandler = object : Handler(Looper.getMainLooper()) {
@@ -50,7 +50,7 @@ open class BaseSongPlayerActivity : AppCompatActivity(), OnPlayerServiceCallback
             mBound = true
             mService?.subscribeToSongPlayerUpdates()
             mHandler.sendEmptyMessage(msg)
-            mService?.addListener(this@BaseSongPlayerActivity)
+            mService?.addListener(this@BasePlayerActivity)
         }
 
         override fun onServiceDisconnected(classname: ComponentName) {
@@ -167,7 +167,7 @@ open class BaseSongPlayerActivity : AppCompatActivity(), OnPlayerServiceCallback
 
     companion object {
 
-        private val TAG = BaseSongPlayerActivity::class.java.name
+        private val TAG = BasePlayerActivity::class.java.name
         const val SONG_LIST_KEY = "SONG_LIST_KEY"
         private const val ACTION_PLAY_SONG_IN_LIST = 1
         private const val ACTION_PAUSE = 2

@@ -7,7 +7,7 @@ import android.widget.SeekBar
 import androidx.lifecycle.Observer
 import coil.load
 import coil.request.CachePolicy
-import com.raju.player.BaseSongPlayerActivity
+import com.raju.player.BasePlayerActivity
 import com.raju.player.model.ASong
 import com.raju.player.util.OnSwipeTouchListener
 import com.raju.player.util.formatTimeInMillisToString
@@ -16,7 +16,7 @@ import com.raju.pratilipi_fm.data.model.Song
 import com.raju.pratilipi_fm.databinding.ActivityPlayerBinding
 import java.io.File
 
-class PlayerActivity : BaseSongPlayerActivity() {
+class PlayerActivity : BasePlayerActivity() {
 
     lateinit var binding: ActivityPlayerBinding
 

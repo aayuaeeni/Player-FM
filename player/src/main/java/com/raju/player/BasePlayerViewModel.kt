@@ -7,7 +7,7 @@ import com.raju.player.model.ASong
 import com.raju.player.util.formatTimeInMillisToString
 
 
-class SongPlayerViewModel : ViewModel() {
+class BasePlayerViewModel : ViewModel() {
 
     private val _playerData = MutableLiveData<ASong>()
     val playerData: LiveData<ASong> = _playerData
@@ -113,15 +113,15 @@ class SongPlayerViewModel : ViewModel() {
 
     companion object {
 
-        private val TAG = SongPlayerViewModel::class.java.name
-        private var mInstance: SongPlayerViewModel? = null
+        private val TAG = BasePlayerViewModel::class.java.name
+        private var mInstance: BasePlayerViewModel? = null
 
         @Synchronized
-        fun getPlayerViewModelInstance(): SongPlayerViewModel {
+        fun getPlayerViewModelInstance(): BasePlayerViewModel {
             if (mInstance == null) {
-                mInstance = SongPlayerViewModel()
+                mInstance = BasePlayerViewModel()
             }
-            return mInstance as SongPlayerViewModel
+            return mInstance as BasePlayerViewModel
         }
     }
 
