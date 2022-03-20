@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_bg_border_upper_half_rounded_heder"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="Options"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/tvRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="Record"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/tvPickAudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="Pick Audio"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            tools:ignore="MissingPrefix" />
+
+    </LinearLayout>
+</RelativeLayout>
